@@ -4,6 +4,7 @@ import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import OrderHistory from './components/OrderHistory';
+import { API_ENDPOINTS } from './config';
 import './App.css';
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('/api/products');
+      const response = await axios.get(API_ENDPOINTS.PRODUCTS);
       setProducts(response.data);
       setLoading(false);
     } catch (err) {
@@ -58,7 +59,7 @@ export default function App() {
 
   const checkout = async (orderData) => {
     try {
-      const response = await axios.post('/api/orders', orderData);
+      const response = await axios.post(API_ENDPOINTS.ORDERS, orderData);
       alert('Order placed successfully! Order ID: ' + response.data._id);
       setCart([]);
       setView('products');

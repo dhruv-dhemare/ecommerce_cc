@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_ENDPOINTS } from '../config';
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +13,7 @@ export default function OrderHistory() {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('/api/orders');
+      const response = await axios.get(API_ENDPOINTS.ORDERS);
       setOrders(response.data);
       setLoading(false);
     } catch (err) {
