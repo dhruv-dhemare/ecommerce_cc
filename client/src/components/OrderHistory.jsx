@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_ENDPOINTS } from '../config';
+import { API_ENDPOINTS } from '../App';
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState([]);
